@@ -1,0 +1,19 @@
+{
+  "name": "attest_ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^25.0.3",
+    "dotenv": "^17.2.3",
+    "playwright": "^1.57.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0"
+  },
+  "scripts": {
+    "test": "playwright test --ui tests/test_baidu.spec.ts",
+    "test:headed": "playwright test --headed --project=chromium tests/sse/sse.listener.spec.ts"
+  }
+}
