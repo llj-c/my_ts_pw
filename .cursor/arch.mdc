@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+---
+
+这是一个ts+playwright的自动化测试框架
