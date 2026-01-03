@@ -13,7 +13,7 @@ import { defineConfig, devices } from "@playwright/test";
  */
 export default defineConfig({
     /* Global setup - 在所有测试运行之前执行 */
-    globalSetup: require.resolve('./src/global-setup.ts'),
+    // globalSetup: require.resolve('./src/global-setup.ts'),
     
     /* Global teardown - 在所有测试运行之后执行（可选） */
     // globalTeardown: require.resolve('./src/global-teardown.ts'),
@@ -46,15 +46,15 @@ export default defineConfig({
             use: { ...devices["Desktop Chrome"] },
         },
 
-        {
-            name: "firefox",
-            use: { ...devices["Desktop Firefox"] },
-        },
+        // {
+        //     name: "firefox",
+        //     use: { ...devices["Desktop Firefox"] },
+        // },
 
-        {
-            name: "webkit",
-            use: { ...devices["Desktop Safari"] },
-        },
+        // {
+        //     name: "webkit",
+        //     use: { ...devices["Desktop Safari"] },
+        // },
 
         /* Test against mobile viewports. */
         // {

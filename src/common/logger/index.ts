@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import envConfig from '@/common/config/env';
-import { PROJECT_ROOT } from '@/common/helper/pathUtil';
+import envConfig from '../config/env';
+import { PROJECT_ROOT } from '../../utils/pathUtil';
 
 // 创建日志目录
 const logDir = path.resolve(PROJECT_ROOT, 'logs');
