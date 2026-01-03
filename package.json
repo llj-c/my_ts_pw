@@ -4,18 +4,31 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@prisma/client": "5.19.1",
     "@types/node": "^25.0.3",
     "dotenv": "^17.2.3",
     "playwright": "^1.57.0",
+    "prisma": "5.19.1",
+    "sqlite3": "^5.1.7",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "tsc-alias": "^1.8.16"
+    "@types/sqlite3": "^5.1.0",
+    "dotenv-cli": "^11.0.0",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsx": "^4.21.0"
   },
   "scripts": {
     "test": "playwright test --ui tests/test_baidu.spec.ts",
     "test:headed": "playwright test --headed --project=chromium tests/sse/sse.listener.spec.ts",
-    "build": "tsc && tsc-alias"
+    "exec:lonely": "tsx tests/exec_lonely.ts",
+    "prisma:generate": "dotenv -e env/.env.uat -- prisma generate --schema=./src/utils/db/schema.prisma",
+    "prisma:migrate": "dotenv -e env/.env.uat -- prisma migrate dev --schema=./src/utils/db/schema.prisma",
+    "prisma:push": "dotenv -e env/.env.uat  -- prisma db push --schema=./src/utils/db/schema.prisma",
+    "prisma:deploy": "dotenv -e env/.env.uat -- prisma validate --schema=./src/utils/db/schema.prisma && prisma migrate deploy --schema=./src/utils/db/schema.prisma",
+    "prisma:format": "dotenv -e env/.env.uat -- prisma format --schema=./src/utils/db/schema.prisma",
+    "prisma:validate": "dotenv -e env/.env.uat -- prisma validate --schema=./src/utils/db/schema.prisma"
   }
 }

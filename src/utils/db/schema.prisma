@@ -1,0 +1,29 @@
+// Prisma Schema 文件
+// 用于定义数据库结构和生成 Prisma Client
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// HTTP 请求捕获数据表
+// 对应 SQL: test_data_url_capture
+model TestDataUrlCapture {
+  id                 Int      @id @default(autoincrement())
+  apiUrl             String // API URL
+  apiMethod          String // HTTP 方法 (GET, POST, PUT, DELETE 等)
+  apiPostData        String? // POST 请求体数据
+  apiParams          String? // URL 查询参数 (JSON 格式，存储为字符串)
+  apiRequestHeaders  String? // 请求头 (JSON 格式，存储为字符串)
+  apiResponseHeaders String? // 响应头 (JSON 格式，存储为字符串)
+  apiResponseBody    String? // 响应体 (JSON 格式，存储为字符串)
+  apiStatusCode      Int? // HTTP 状态码
+  createdAt          DateTime @default(now()) // 创建时间
+  updatedAt          DateTime @updatedAt // 更新时间
+
+  @@map("test_data_url_capture") // 映射到数据库表名
+}
