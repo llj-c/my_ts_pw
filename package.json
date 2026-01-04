@@ -24,11 +24,15 @@
     "test": "playwright test --ui tests/test_baidu.spec.ts",
     "test:headed": "playwright test --headed --project=chromium tests/sse/sse.listener.spec.ts",
     "exec:lonely": "tsx tests/exec_lonely.ts",
-    "prisma:generate": "dotenv -e env/.env.uat -- prisma generate --schema=./src/utils/db/schema.prisma",
-    "prisma:migrate": "dotenv -e env/.env.uat -- prisma migrate dev --schema=./src/utils/db/schema.prisma",
-    "prisma:push": "dotenv -e env/.env.uat  -- prisma db push --schema=./src/utils/db/schema.prisma",
-    "prisma:deploy": "dotenv -e env/.env.uat -- prisma validate --schema=./src/utils/db/schema.prisma && prisma migrate deploy --schema=./src/utils/db/schema.prisma",
-    "prisma:format": "dotenv -e env/.env.uat -- prisma format --schema=./src/utils/db/schema.prisma",
-    "prisma:validate": "dotenv -e env/.env.uat -- prisma validate --schema=./src/utils/db/schema.prisma"
+    "prisma:generate": "tsx src/utils/db/prisma-cli.ts generate",
+    "prisma:migrate": "tsx src/utils/db/prisma-cli.ts migrate",
+    "prisma:push": "tsx src/utils/db/prisma-cli.ts push",
+    "prisma:deploy": "tsx src/utils/db/prisma-cli.ts deploy",
+    "prisma:format": "tsx src/utils/db/prisma-cli.ts format",
+    "prisma:validate": "tsx src/utils/db/prisma-cli.ts validate",
+    "prisma:cli": "tsx src/utils/db/prisma-cli.ts",
+    "db:backup": "tsx scripts/backup-database.ts",
+    "db:backup:compress": "tsx scripts/backup-database.ts --compress",
+    "prisma:migrate:safe": "npm run db:backup && npm run prisma:migrate"
   }
 }

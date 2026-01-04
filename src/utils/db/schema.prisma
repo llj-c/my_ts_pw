@@ -27,3 +27,20 @@ model TestDataUrlCapture {
 
   @@map("test_data_url_capture") // 映射到数据库表名
 }
+
+// 测试运行记录数据表
+// 对应 SQL: test_runner
+model TestRunner {
+  id              Int      @id @default(autoincrement())
+  testName        String // 测试名称
+  testDescription String // 测试描述
+  testStatus      String // 测试状态
+  result          String // 测试结果
+  startTime       DateTime // 开始时间
+  endTime         DateTime // 结束时间
+  createdAt       DateTime @default(now()) // 创建时间
+  updatedAt       DateTime @updatedAt // 更新时间
+
+  @@map("test_runner") // 映射到数据库表名
+}
+
