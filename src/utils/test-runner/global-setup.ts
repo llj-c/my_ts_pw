@@ -1,7 +1,7 @@
 import { request } from '@playwright/test';
 import type { FullConfig } from '@playwright/test';
-import { AuthApi } from './common/api/authApi';
-import { initEnv } from './common/config/env';
+import { AuthApi } from '../../common/api/authApi';
+import { initEnv } from '../../common/config/env';
 import fs from 'fs';
 import path from 'path';
 
